@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- jsp page 선언부에 spring message를 사용할 수 있도록 선언 -->
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>    
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -42,7 +44,17 @@
 	    <h1 class="display-4">Fluid jumbotron</h1>
 	    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
 	  </div>
-	</div>  
+	</div>
+	
+	
+	<div class="container">
+		<!-- spring:message code="properties의 key" -->
+		<h1><spring:message code="hello"></spring:message></h1>
+		<h1><spring:message code="board.notice.list.welcome"></spring:message></h1>
+																			<!-- 어떤 것으로 분리할 것인지 입력/ 앞에 ,로 분리 했으므로 ,를 입력 -->
+		<h1><spring:message code="user.welcome" arguments="${user}, ${msg}" argumentSeparator=","></spring:message></h1>
+	</div>
+   
    
 	<footer class="footer mt-auto py-3 bg-dark">
 	  <div class="container">

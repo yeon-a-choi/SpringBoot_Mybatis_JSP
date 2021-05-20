@@ -16,7 +16,10 @@ public class HomeController {
 	@GetMapping("/")
 	public String home(Model model) {
 		
-		model.addAttribute("message", "JSP Project");
+		//model.addAttribute("message", "JSP Project");
+		
+		model.addAttribute("user", "iu");
+		model.addAttribute("msg", "하루");
 		
 		return "index";
 	}

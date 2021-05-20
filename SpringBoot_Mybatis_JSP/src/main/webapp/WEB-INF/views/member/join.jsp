@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- jsp page 선언부에 spring message를 사용할 수 있도록 선언 -->
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>    
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<!-- Spring Form tag를 사용할 수 있도록 선언 -->  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -47,14 +53,75 @@
 	</div>
 	
 	
-	<div class="container">
-		<!-- spring:message code="properties의 key" -->
-							<!-- code(key)가 없는 경우 기본 메세지 출력하는 text 속성 -->
-		<h1><spring:message code="hello1234" text="default message"></spring:message></h1>
-		<h1><spring:message code="hello"></spring:message></h1>
-		<h1><spring:message code="board.notice.list.welcome"></spring:message></h1>
-																			<!-- 어떤 것으로 분리할 것인지 입력/ 앞에 ,로 분리 했으므로 ,를 입력 -->
-		<h1><spring:message code="user.welcome" arguments="${user}, ${msg}" argumentSeparator=","></spring:message></h1>
+	<div class="container mt-2">
+		
+		<br>
+		<h2 class="mt-4">Member Join Page</h2>
+		
+		<!-- form태그는 name대신 path로 값을 보냄 -->
+		<form:form modelAttribute="memberVO" id="frm" action="./join" method="post">
+			<!-- ID -->
+			<div class="form-group">
+				<label for="username">ID</label> <!-- path에 memberVO에 없는 것을 넣으면 오류남 -->
+				<form:input class="form-control" id="username" path="username"
+				aria-describedby="idHelp" />
+				<h4 id=idResult></h4>
+				<h4 id=idCheckResult></h4>
+				<!-- ID 는 6글자 이상 -->
+			</div>
+			
+			<!-- Password -->
+			<div class="form-group">
+				<label for="password">Password</label> 
+				<form:password class="form-control" id="password" path="password" />
+				<h4 id="pwResult"></h4>
+				<!-- PW는 8글자 이상 -->
+			</div>
+			
+			<!-- Password 확인 -->
+			<div class="form-group">
+				<label for="pw">Confirm Password</label> 
+				<form:password class="form-control pw2Result" id="pw2" path="password" />
+				<!-- 2번째 비밀번호를 입력했을 때, 같으면 아무일 X, 다르면 값을 지우기 -->
+				<!-- PW 두개는 일치 -->	
+			</div>	
+			
+			
+			<!-- Name -->
+			<div class="form-group">
+				<label for="name">NAME</label> 
+				<form:input class="form-control" id="name" path="name" />
+				<form:errors pass="name"></form:errors>
+				<!-- 비어 있으면 X -->
+			</div>
+			
+			
+			<!-- Phone -->
+			<div class="form-group">
+				<label for="phone">PHONE</label> 
+				<form:input class="form-control" id="phone" path="phone" />
+				<!-- 비어 있으면 X -->
+			</div>
+			
+			
+			<!-- Email -->
+			<div class="form-group">
+				<label for="email">EMAIL</label> 
+				<form:input class="form-control" id="email" path="email" />
+				<!-- 비어 있으면 X -->
+			</div>
+			
+			
+			<!-- 이 버튼은 submit이벤트가 내장되어있어 값을 비교하고 보내는것이 아닌 그냥 보내므로 null값이여도 보내서 exception발생시킴 -->
+			<!-- <button type="submit" class="btn btn-primary" id="check">Submit</button> -->
+						
+			<!-- input type으로 만든 버튼은 form 내부/외부 둘 다 작동안함 -->
+			<!-- <input type="button" value="JOIN" class="btn btn-primary">  -->
+			
+			<input type="submit" value="JOIN" id="btn" class="btn btn-primary">
+			<!-- button -->
+		</form:form>
+		
 	</div>
    
    

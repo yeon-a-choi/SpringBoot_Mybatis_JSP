@@ -19,6 +19,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    
+    <style type="text/css">
+	
+		.c1{
+			color: red;
+		}
+
+	</style>
+    
   </head>
   <body>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -63,8 +72,7 @@
 			<!-- ID -->
 			<div class="form-group">
 				<label for="username">ID</label> <!-- path에 memberVO에 없는 것을 넣으면 오류남 -->
-				<form:input class="form-control" id="username" path="username"
-				aria-describedby="idHelp" />
+				<form:input class="form-control" id="username" path="username" />
 				<h4 id=idResult></h4>
 				<h4 id=idCheckResult></h4>
 				<!-- ID 는 6글자 이상 -->
@@ -74,24 +82,23 @@
 			<div class="form-group">
 				<label for="password">Password</label> 
 				<form:password class="form-control" id="password" path="password" />
-				<h4 id="pwResult"></h4>
-				<!-- PW는 8글자 이상 -->
+				<form:errors path="password" class="c1"></form:errors>
 			</div>
 			
 			<!-- Password 확인 -->
-			<div class="form-group">
+<%-- 			<div class="form-group">
 				<label for="pw">Confirm Password</label> 
 				<form:password class="form-control pw2Result" id="pw2" path="password" />
 				<!-- 2번째 비밀번호를 입력했을 때, 같으면 아무일 X, 다르면 값을 지우기 -->
 				<!-- PW 두개는 일치 -->	
-			</div>	
+			</div>	 --%>
 			
 			
 			<!-- Name -->
 			<div class="form-group">
 				<label for="name">NAME</label> 
 				<form:input class="form-control" id="name" path="name" />
-				<form:errors pass="name"></form:errors>
+				<form:errors path="name"></form:errors>
 				<!-- 비어 있으면 X -->
 			</div>
 			
@@ -108,7 +115,15 @@
 			<div class="form-group">
 				<label for="email">EMAIL</label> 
 				<form:input class="form-control" id="email" path="email" />
+				<form:errors path="email"></form:errors>
 				<!-- 비어 있으면 X -->
+			</div>
+			
+			<!-- Age -->
+			<div class="form-group">
+				<label for="age">AGE</label> 
+				<form:input class="form-control" id="age" path="age" />
+				<form:errors path="age"></form:errors>
 			</div>
 			
 			

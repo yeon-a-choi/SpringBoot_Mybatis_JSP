@@ -98,7 +98,7 @@
 			<div class="form-group">
 				<label for="name">NAME</label> 
 				<form:input class="form-control" id="name" path="name" />
-				<form:errors path="name"></form:errors>
+				<form:errors path="name" class="c1"></form:errors>
 				<!-- 비어 있으면 X -->
 			</div>
 			
@@ -115,7 +115,7 @@
 			<div class="form-group">
 				<label for="email">EMAIL</label> 
 				<form:input class="form-control" id="email" path="email" />
-				<form:errors path="email"></form:errors>
+				<form:errors path="email" class="c1"></form:errors>
 				<!-- 비어 있으면 X -->
 			</div>
 			
@@ -123,7 +123,7 @@
 			<div class="form-group">
 				<label for="age">AGE</label> 
 				<form:input class="form-control" id="age" path="age" />
-				<form:errors path="age"></form:errors>
+				<form:errors path="age" class="c1"></form:errors>
 			</div>
 			
 			
